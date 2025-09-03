@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>G Best Corp Millwork</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/glightbox/dist/css/glightbox.min.css" />
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #fdfdfd;
+      color: #333;
+    }
+    header {
+      background: url('images/background.jpg') no-repeat center center/cover;
+      color: white;
+      text-align: center;
+      padding: 80px 20px;
+    }
+    header img {
+      max-height: 100px;
+      margin-bottom: 20px;
+    }
+    .experience {
+      font-size: 1.5em;
+      font-weight: bold;
+      color: #FFD700;
+    }
+    nav {
+      background: #333;
+      padding: 10px;
+      text-align: center;
+    }
+    nav a {
+      color: white;
+      margin: 0 15px;
+      text-decoration: none;
+    }
+    nav a:hover {
+      text-decoration: underline;
+    }
+    section {
+      padding: 40px 20px;
+      text-align: center;
+    }
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 15px;
+      margin-top: 20px;
+    }
+    .gallery img {
+      width: 100%;
+      border-radius: 8px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+      cursor: pointer;
+      transition: transform 0.3s;
+    }
+    .gallery img:hover {
+      transform: scale(1.05);
+    }
+    footer {
+      background: #333;
+      color: white;
+      text-align: center;
+      padding: 20px;
+      margin-top: 40px;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <img src="images/G_Best_Corp_Logo.jpeg" alt="G Best Corp Logo">
+  <h1>G Best Corp Millwork</h1>
+  <p class="experience">20 Years of Experience in Custom Millwork & Furniture</p>
+</header>
+
+<nav>
+  <a href="#gallery">Gallery</a>
+  <a href="#contact">Contact</a>
+</nav>
+
+<section id="gallery">
+  <h2>Our Work</h2>
+  <div class="gallery" id="gallery-container">
+    <!-- JS вставит фото -->
+  </div>
+</section>
+
+<section id="contact">
+  <h2>Contact Us</h2>
+  <p>📍 1323 East 16, Brooklyn, NY, 11230</p>
+  <p>📞 Giorgiy: 347-723-6671</p>
+  <p>📞 Ross: 929-255-8335</p>
+  <p>📧 Email: <a href="mailto:info@gbestcorp.com">info@gbestcorp.com</a></p>
+</section>
+
+<footer>
+  <p>&copy; 2025 G Best Corp Millwork. All rights reserved.</p>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/glightbox/dist/js/glightbox.min.js"></script>
+<script>
+  // Автоматическая загрузка фото IMG_0015.jpeg - IMG_0067.jpeg
+  const gallery = document.getElementById("gallery-container");
+  for (let i = 15; i <= 67; i++) {
+    const num = i.toString().padStart(4, '0'); // 0015, 0016 ...
+    const file = `images/IMG_${num}.jpeg`;
+    const link = document.createElement("a");
+    link.href = file;
+    link.className = "glightbox";
+    const img = document.createElement("img");
+    img.src = file;
+    img.alt = `Millwork Project ${i}`;
+    link.appendChild(img);
+    gallery.appendChild(link);
+  }
+  const lightbox = GLightbox({ selector: '.glightbox' });
+</script>
+
+</body>
+</html>
